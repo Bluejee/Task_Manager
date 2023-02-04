@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+      body {
+        background-color: lightblue;
+        text-align: center;
+      }
+      table {
+        margin: auto;
+        border-collapse: collapse;
+        width: 60%;
+      }
+      td, th {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      h1 {
+        margin-top: 50px;
+        color: white;
+      }
+    </style>
+    <script>
+        function add_task(){
+            var task = document.forms["add_task_form"]["task"].value;
+            var priority = document.forms["add_task_form"]["priority"].value;
+            if (task === "" || priority === "") {
+                alert("Both fields must be filled out.");
+                return false;
+            }
+
+          if (priority < 1 || priority > 10) {
+            alert("Priority must be between 1 and 10");
+            return false;
+          }
+            return true;
+        }
+
+        function pick_task(){
+            location.href='/';
+        <!--            This is so that it generates a new task every time it is called.-->
+            var pickedTask = document.getElementById("picked-task").value;
+            if (pickedTask == ""){
+                alert('No Tasks Added!');
+                return false;
+                }
+            alert('Lets do this Task :: ' + pickedTask);
+        }
+    </script>
+</head>
+<body>
+<h1>Task List</h1>
+<table>
+    <tr>
+        <th>Index</th>
+        <th>Task</th>
+        <th>Priority</th>
+        <th>Action</th>
+    </tr>
+    <tr>
+        {% for i in range(n) %}
+    <tr>
+        <td>{{ i+1 }}</td>
+        <td>{{ tasks[i]["task"] }}</td>
+        <td>{{ tasks[i]["priority"] }}</td>
+        <td>
+            <button onclick="location.href='/remove_task/{{ i }}'">Remove</button>
+        </td>
+        <!--         this uses JS instead of form-->
+        </td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td></td>
+        <td><input form="add_task_form" type="text" name="task" placeholder="Task"></td>
+        <!--        <td><input form="add_task_form" type="number" name="priority" placeholder="Priority" min="1" max="5"></td>-->
+        <!--        <td>-->
+        <!--            <select form="add_task_form" name="priority">-->
+        <!--                <option value="">Priority</option>-->
+        <!--                <option value="1">1</option>-->
+        <!--                <option value="2">2</option>-->
+        <!--                <option value="3">3</option>-->
+        <!--                <option value="4">4</option>-->
+        <!--                <option value="5">5</option>-->
+        <!--            </select>-->
+        <!--        </td>-->
+        <td><input type="range" min="1" max="10" value="1" form="add_task_form" name="priority" class="slider" id="priority_slider"></a>document.getElementById("priority_slider").value</td>
+        <td><input form="add_task_form" type="submit" value="Add Task"></td>
+    </tr>
+</table>
+
+<form id="add_task_form" onsubmit="return add_task()" action="/add_task" method="post"></form>
+<br><br>
+<input type="hidden" id="picked-task" value="{{ picked_task }}">
+<button onclick="pick_task()">Generate Task</button>
+</body>
+</html>
