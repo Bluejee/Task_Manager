@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, session
 import random
 import json
 
-
 app = Flask(__name__)
 
 try:
@@ -48,6 +47,5 @@ def remove_task(index):
     tasks.pop(index)
     return redirect("/")
 
-
-#if __name__ == "__main__":
-#    app.run(debug=False)
+# if __name__ == "__main__":
+#     app.run(debug=False)

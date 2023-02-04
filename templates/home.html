@@ -25,6 +25,10 @@
       }
     </style>
     <script>
+        function updateSliderText(value) {
+            document.getElementById("sliderText").innerHTML = value;
+        }
+
         function add_task(){
             var task = document.forms["add_task_form"]["task"].value;
             var priority = document.forms["add_task_form"]["priority"].value;
@@ -88,7 +92,7 @@
         <!--                <option value="5">5</option>-->
         <!--            </select>-->
         <!--        </td>-->
-        <td><input type="range" min="1" max="10" value="1" form="add_task_form" name="priority" class="slider" id="priority_slider"></a>document.getElementById("priority_slider").value</td>
+        <td><input type="range" min="1" max="10" value="1" form="add_task_form" name="priority" class="slider" id="priority_slider" oninput="updateSliderText(this.value)"><span id="sliderText">1</span></td>
         <td><input form="add_task_form" type="submit" value="Add Task"></td>
     </tr>
 </table>

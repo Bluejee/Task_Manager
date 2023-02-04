@@ -1,1 +1,5 @@
-[{"task": "Watch a Movie", "priority": 1}, {"task": "Read Research Paper", "priority": 3}, {"task": "Watch a Series Episode", "priority": 1}]
+[
+  { "task": "Watch a Movie", "priority": 1 },
+  { "task": "Read Research Paper", "priority": 3 },
+  { "task": "Watch a Series Episode", "priority": 1 }
+]
