@@ -27,7 +27,6 @@ def generate_task():
 def sort_by_priority(tasks: dict):
     return sorted(tasks, key=lambda task: task["priority"], reverse=True)
 
-print(sort_by_priority(tasks))
 
 @app.route("/")
 def home():
