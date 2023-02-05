@@ -22,6 +22,25 @@ def generate_task():
         if running_sum > random_number:
             return task["task"]
 
+#Added two new functions to change a task's name or priority
+# The functions take the name of the task and a dictionary with tasks
+#and a new name or priority for the task 
+
+def change_task_title(name, tasks, new_name):
+    for task in tasks:
+        if task["task"] == name:
+            task["task"] = new_name
+    with open("task_database.json", "w") as file:
+        json.dump(tasks, file)
+
+def change_task_priority(name, tasks, new_priority):
+    for task in tasks:
+        if task["task"] == name:
+            task["task"] = new_priority
+    with open("task_database.json", "w") as file:
+        json.dump(tasks, file)
+
+
 
 @app.route("/")
 def home():
