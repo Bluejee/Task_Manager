@@ -22,6 +22,11 @@ def generate_task():
         if running_sum > random_number:
             return task["task"]
 
+# The function returns a dictionary where the tasks are sorted 
+# in descending based on their priority
+def sort_by_priority(tasks: dict):
+    return sorted(tasks, key=lambda task: task["priority"], reverse=True)
+
 
 @app.route("/")
 def home():
