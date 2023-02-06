@@ -1,6 +1,6 @@
  Task Manager - A web app that takes of your mind from deiciding which task to do
  
-    Copyright (C) 2023  Balakrishna Prabhu B. N.
+    Copyright (C) 2023  Balakrishna Prabhu B. N. <balakrishnaprabhu1999@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
